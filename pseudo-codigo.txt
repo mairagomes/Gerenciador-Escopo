@@ -1,0 +1,79 @@
+Função principal main():
+    Define o nome do arquivo a ser interpretado
+    Chama a função gerenciamento_escopo() passando o nome do arquivo como argumento
+
+Função gerenciamento_escopo(arquivo):
+    Inicializa uma pilha de escopos vazia
+    Inicializa uma lista de tabela de símbolos vazia
+    Inicializa um contador de linha
+    Obtém a lista de comandos do arquivo de entrada
+    Para cada linha de comando na lista de comandos:
+        Divide a linha em partes
+        Se a linha estiver vazia, incrementa o contador de linha
+        Senão, verifica o tipo de comando na primeira parte da linha:
+            Se for "BLOCO", cria um novo escopo vazio na pilha
+            Se for "NUMERO", realiza a declaração de uma variável numérica
+            Se for "CADEIA", realiza a declaração de uma variável de cadeia de caracteres
+            Se for "PRINT", imprime o valor da variável especificada
+            Se for "FIM", remove o escopo atual da pilaha
+            Para outros casos, trata-se de uma atribuição de valor a uma variável
+                Se a variável não existir, lança uma exceção
+                Obtém o valor e tipo da variável atribuída
+                Percorre a pilha de escopos para encontrar a variável
+                Se os tipos forem compatíveis, atualiza o valor da variável
+                Senão, lança uma exceção de tipos de dados não compatíveis
+    Incrementa o contador de linha
+
+Função lista_comandos(arquivo):
+    Abre o arquivo no modo leitura
+    Inicializa uma lista vazia
+    Para cada linha no arquivo:
+        Adiciona a linha à lista removendo espaços em branco no início e no final
+    Fecha o arquivo
+    Retorna a lista de comandos
+
+Função declaracao(var):
+    Inicializa listas para armazenar os lexemas e valores das variáveis
+    Usa uma expressão regular para encontrar declarações de variáveis na forma "nome=valor"
+    Para cada declaração encontrada:
+        Separa o lexema e o valor
+        Adiciona o lexema e o valor às listas
+    Retorna as listas de lexemas e valores
+
+Função criar_escopo(tabela, pilha):
+    Para cada tabela na pilha de escopos atual:
+        Para cada variável na tabela:
+            Se a variável já existe na pilha, retorna False
+    Retorna True se for possível criar um novo escopo
+
+Função busca_de_variavel(variavel, pilha, linha):
+    Para cada escopo na pilha de escopos, de cima para baixo:
+        Para cada tabela na pilha:
+            Se o lexema da tabela for igual à variável, retorna o valor
+    Lança uma exceção se a variável não for encontrada
+
+Função atribuicao(variavel, valor, pilha, linha):
+    Função interna obter_valor_e_tipo(valor, pilha):
+        Se o valor for um identificador de variável, retorna seu valor e tipo
+        Senão, trata o valor como literal e retorna seu tipo
+
+    Função interna verifica_declaracao(variavel, pilha):
+        Verifica se a variável foi declarada em algum escopo da pilha
+
+    Se a variável não foi declarada, lança uma exceção
+    Tenta obter o valor e o tipo da variável atribuída
+    Percorre a pilha de escopos para encontrar a variável
+    Se os tipos forem compatíveis, atualiza o valor da variável
+    Senão, lança uma exceção de tipos de dados não compatíveis
+
+Função tipo(valor):
+    Se o valor for None, retorna None
+    Se o valor estiver entre aspas duplas, retorna "CADEIA"
+    Tenta converter o valor para float, se conseguir, retorna "NUMERO"
+    Senão, lança uma exceção
+
+Função auxiliar print_tabela(tabela):
+    Imprime os detalhes de uma tabela de símbolos
+
+Função auxiliar print_pilha(pilha):
+    Imprime todas as tabelas de símbolos na pilha de escopos
