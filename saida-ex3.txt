@@ -1,0 +1,11 @@
+ 12345
+ 25
+ "Compiladores"
+ 25
+ Erro linha 18: tipos de dados não compatíveis
+ 25
+ None
+ "Hello"
+ Erro linha 25: tipos de dados não compatíveis
+ "Hello"
+ 45
