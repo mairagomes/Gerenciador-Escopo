@@ -1,18 +1,18 @@
  20
  10
- Erro linha  8: tipos não compatíveis
+ Erro linha  8: tipos de dados não compatíveis
  "Ola mundo"
  20
  -0.45
  10
  "Compiladores"
  "Bloco2"
- Erro linha 25: variável não declarada
+ Erro linha 25: variável 'c' não declarada
  -0.28
  "Compiladores"
  None
  -0.28
  40
  -0.28
- Erro linha 38: variável não declarada
+ Erro linha 38: variável 'c' não declarada
  11
