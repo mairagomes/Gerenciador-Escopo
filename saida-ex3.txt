@@ -4,7 +4,7 @@
  25
  Erro linha 18: tipos de dados não compatíveis
  25
- None
+ 0
  "Hello"
  Erro linha 25: tipos de dados não compatíveis
  "Hello"
