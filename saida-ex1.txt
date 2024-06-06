@@ -10,7 +10,7 @@
  Erro linha 25: variável 'c' não declarada
  -0.28
  "Compiladores"
- None
+ 0
  -0.28
  40
  -0.28
